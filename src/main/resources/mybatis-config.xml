@@ -9,6 +9,6 @@
 
 	<!-- 映射实体类 -->
 	<typeAliases>
-		<package name="bdqn.pojo" />
+		<package name="cn.bdqn.pojo" />
 	</typeAliases>
 </configuration>

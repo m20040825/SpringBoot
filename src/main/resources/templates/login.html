@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	My is login.html!
-
 	<!-- 登录表单 -->
 	<form action="welcome.htm" th:action="@{/user/login}" method="post" name="login">
 		<span style="color:red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></span>

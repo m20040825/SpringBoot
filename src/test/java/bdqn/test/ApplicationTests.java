@@ -12,8 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import bdqn.dao.UserMapper;
-import bdqn.pojo.User;
+import cn.bdqn.dao.UserMapper;
+import cn.bdqn.pojo.User;
 
 /**
  * 测试类

@@ -15,4 +15,4 @@ spring:
     max-wait: 3000
 mybatis:
   config-location: classpath:mybatis-config.xml
-  mapper-locations: classpath:bdqn/mapper/*Mapper.xml
+  mapper-locations: classpath:cn.bdqn/mapper/*Mapper.xml

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.bdqn.dao.UserMapper">
+	<cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true" />
+
+	<insert id="addUser">
+		insert into
+		base_user(u_name,u_pwd,u_email,u_images)values(#{u_name},#{u_pwd},#{u_email},#{u_images});
+	</insert>
+
+	<update id="delUser">
+		UPDATE base_user SET u_del_flag=FALSE WHERE u_id=#{u_id};
+	</update>
+
+	<update id="updateUser">
+		update base_user
+		<set>
+			<if test="u_name!=null">u_name=#{u_name},</if>
+			<if test="u_password!=null">u_password=#{u_password},</if>
+		</set>
+		where u_id=#{u_id};
+	</update>
+
+	<select id="selectUser" resultType="User">
+		SELECT * FROM base_user AS u
+		<where>
+			<if test="null!=u_id">
+				AND u.u_id=#{u_id}
+			</if>
+			<if test="null!=u_username">
+				AND u.u_username=#{u_username}
+			</if>
+			<if test="null!=u_password and''!=u_password">
+				AND u.u_password=#{u_password}
+			</if>
+			AND U_DEL_FLAG=TRUE
+		</where>
+	</select>
+
+	<select id="selectUserById" resultType="User">
+		SELECT * FROM base_user AS u
+		<where>
+			<if test="null!=u_id">
+				AND u.u_id=#{u_id}
+			</if>
+			AND u.U_DEL_FLAG=TRUE
+		</where>
+	</select>
+
+	<select id="selectLogin" resultType="User" useCache="false">
+		<!-- SELECT * FROM base_user AS u WHERE u.u_username=#{u_username} AND u.u_password=#{u_password} AND u.u_del_flag=TRUE -->
+		CALL
+		selectloginprocedure(#{u_username},#{u_password});
+	</select>
+</mapper>
