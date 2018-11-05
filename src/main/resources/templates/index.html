@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link th:href="@{/webjars/bootstarp/4.0.0/css/bootstarp.css}"></link>
+<title>Insert title here</title>
+</head>
+<body>
+My is index.html!
+<div th:text="${hello}" th:name="${hello}"></div>
+
+now==<div th:text="${now}"></div>
+username==><span th:text="${session.loginUser.u_username}"></span>
+</body>
+</html>

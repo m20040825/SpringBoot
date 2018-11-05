@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>
+		<!-- 开启驼峰命名转换,方便名称的映射 -->
+		<property name="mapUnderscoreToCamelCase" value="true"/>
+	</properties>
+
+	<!-- 映射实体类 -->
+	<typeAliases>
+		<package name="bdqn.pojo" />
+	</typeAliases>
+</configuration>
